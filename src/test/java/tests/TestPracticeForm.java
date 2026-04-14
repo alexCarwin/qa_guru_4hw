@@ -49,4 +49,20 @@ public class TestPracticeForm extends TestBase {
     }
 
 
+    @Test
+    void PositiveOnlyRequiredFieldsTest(){
+        open("/automation-practice-form");
+        $("#firstName").val("Zulu");
+        $("#lastName").val("Zinho");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").val("8911241555");
+
+        $("#submit").click();
+
+        $(".table-responsive").shouldHave(text("Zulu Zinho"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("8911241555"));
+
+    }
+
 }
