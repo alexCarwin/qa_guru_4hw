@@ -11,14 +11,17 @@ public class TestPracticeForm extends TestBase {
 
 
     @Test
-    void successfulFillFormTest(){
+    void successfulFillFormTest() {
         open("/automation-practice-form");
-        $("#firstName").val("Zalu");
-        $("#lastName").val("Pa");
+        $("#firstName").val("Zulu");
+        $("#lastName").val("Zinho");
         $("#userEmail").val("fdsf@yadn.xu");
         $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").val("89111111111");
-        $("#dateOfBirthInput").val("12 Apr 1990").pressEnter();
+        $("#userNumber").val("8911241555");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("May");
+        $(".react-datepicker__year-select").selectOption("1996");
+        $(".react-datepicker__day--018").click();
         $("#subjectsInput").setValue("Commerce").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
@@ -31,10 +34,17 @@ public class TestPracticeForm extends TestBase {
 
         $("#submit").click();
 
-        $("[id=output] [id=name]").shouldHave(text("Alex White"));
-        $("[id=output] [id=email]").shouldHave(text("dfgdf@bfsd.ru"));
-        $("[id=output] [id=currentAddress]").shouldHave(text("first address 323"));
-        $("[id=output] [id=permanentAddress ]").shouldHave(text("second address 443"));
+        $(".table-responsive").shouldHave(text("Zulu Zinho"));
+        $(".table-responsive").shouldHave(text("fdsf@yadn.xu"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("8911241555"));
+        $(".table-responsive").shouldHave(text("18 May,1996"));
+        $(".table-responsive").shouldHave(text("Commerce"));
+        $(".table-responsive").shouldHave(text("Sports"));
+        $(".table-responsive").shouldHave(text("Music"));
+        $(".table-responsive").shouldHave(text("current address"));
+        $(".table-responsive").shouldHave(text("Rajasthan"));
+        $(".table-responsive").shouldHave(text("Jaipur"));
 
     }
 
