@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestPracticeForm extends TestBase {
 
-
     @Test
     void successfulFillFormTest() {
         open("/automation-practice-form");
