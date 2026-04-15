@@ -3,6 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -47,7 +48,7 @@ public class TestPracticeForm extends TestBase {
 
     }
 
-
+    //позитивный сценарий
     @Test
     void PositiveOnlyRequiredFieldsTest() {
         open("/automation-practice-form");
@@ -61,7 +62,30 @@ public class TestPracticeForm extends TestBase {
         $(".table-responsive").shouldHave(text("Zulu Zinho"));
         $(".table-responsive").shouldHave(text("Male"));
         $(".table-responsive").shouldHave(text("8911241555"));
-
     }
+
+    //вводим только имя и фамилию
+    @Test
+    void NegativeOnlyNameFieldTest() {
+        open("/automation-practice-form");
+        $("#firstName").val("Zulu");
+        $("#lastName").val("Zinho");
+
+        $("#submit").click();
+
+        $(".table-responsive").shouldNotHave(visible);
+    }
+
+    //вводим только гендер
+    @Test
+    void NegativeOnlyGenderFieldTest() {
+        open("/automation-practice-form");
+        $("#genterWrapper").$(byText("Male")).click();
+
+        $("#submit").click();
+
+        $(".table-responsive").shouldNotHave(visible);
+    }
+
 
 }
