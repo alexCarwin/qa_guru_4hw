@@ -88,4 +88,32 @@ public class TestPracticeForm extends TestBase {
     }
 
 
+    //Позитивный тест на простую форму
+    @Test
+    void successfulFillSimpleFormTest() {
+        open("/text-box");
+        $("#userName").val("Alex White");
+        $("#userEmail").val("dfgdf@bfsd.ru");
+        $("#currentAddress").val("first address 323");
+        $("#permanentAddress").val("second address 443");
+
+        $("#submit").click();
+
+        $("#output #name").shouldHave(text("Alex White"));
+        $("#output #email").shouldHave(text("dfgdf@bfsd.ru"));
+        $("#output #currentAddress").shouldHave(text("first address 323"));
+        $("#output #permanentAddress").shouldHave(text("second address 443"));
+    }
+
+    //Позитивный тест на простую форму
+    @Test
+    void negativeIncorrectEmailSimpleFormTest() {
+        open("/text-box");
+        $("#userName").val("Alex White");
+        $("#userEmail").val("dfg242");
+
+        $("#submit").click();
+
+        $("#output #email").shouldNotHave(visible);
+    }
 }
