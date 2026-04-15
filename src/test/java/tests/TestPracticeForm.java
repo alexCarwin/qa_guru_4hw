@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestPracticeForm extends TestBase {
 
+    //Позитивный сценарий 1
     @Test
     void successfulFillFormTest() {
         open("/automation-practice-form");
@@ -45,10 +46,10 @@ public class TestPracticeForm extends TestBase {
         $(".table-responsive").shouldHave(text("current address"));
         $(".table-responsive").shouldHave(text("Rajasthan"));
         $(".table-responsive").shouldHave(text("Jaipur"));
-
     }
 
-    //позитивный сценарий
+
+    //Позитивный сценарий 2
     @Test
     void PositiveOnlyRequiredFieldsTest() {
         open("/automation-practice-form");
@@ -64,7 +65,8 @@ public class TestPracticeForm extends TestBase {
         $(".table-responsive").shouldHave(text("8911241555"));
     }
 
-    //вводим только имя и фамилию
+
+    //Негативный сценарий: вводим только имя и фамилию
     @Test
     void NegativeOnlyNameFieldTest() {
         open("/automation-practice-form");
@@ -76,7 +78,8 @@ public class TestPracticeForm extends TestBase {
         $(".table-responsive").shouldNotHave(visible);
     }
 
-    //вводим только гендер
+
+    //Негативный сценарий: вводим только гендер
     @Test
     void NegativeOnlyGenderFieldTest() {
         open("/automation-practice-form");
@@ -88,24 +91,34 @@ public class TestPracticeForm extends TestBase {
     }
 
 
-    //Позитивный тест на простую форму
+    //Негативный сценарий: вводим некоректный номер
+    @Test
+    void NegativeOnlyUserNumberFieldTest() {
+        open("/automation-practice-form");
+        $("#firstName").val("Zulu");
+        $("#lastName").val("Zinho");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").val("gregeg3");
+
+        $("#submit").click();
+
+        $(".table-responsive").shouldNotHave(visible);
+    }
+
+
+    //Позитивный сценарий на простую форму с минимумом полей
     @Test
     void successfulFillSimpleFormTest() {
         open("/text-box");
         $("#userName").val("Alex White");
-        $("#userEmail").val("dfgdf@bfsd.ru");
-        $("#currentAddress").val("first address 323");
-        $("#permanentAddress").val("second address 443");
 
         $("#submit").click();
 
         $("#output #name").shouldHave(text("Alex White"));
-        $("#output #email").shouldHave(text("dfgdf@bfsd.ru"));
-        $("#output #currentAddress").shouldHave(text("first address 323"));
-        $("#output #permanentAddress").shouldHave(text("second address 443"));
     }
 
-    //Позитивный тест на простую форму
+
+    //Негативный сценарий на простую форму с некорректным имейлом
     @Test
     void negativeIncorrectEmailSimpleFormTest() {
         open("/text-box");
