@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static tests.testdata.TestData.*;
 
 public class TestPracticeForm extends TestBase {
 
@@ -14,11 +15,11 @@ public class TestPracticeForm extends TestBase {
     @Test
     void successfulFillFormTest() {
         open("/automation-practice-form");
-        $("#firstName").val("Zulu");
-        $("#lastName").val("Zinho");
-        $("#userEmail").val("fdsf@yadn.xu");
+        $("#firstName").val(firstName);
+        $("#lastName").val(lastName);
+        $("#userEmail").val(userEmail);
         $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").val("8911241555");
+        $("#userNumber").val(userNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1996");
@@ -27,25 +28,25 @@ public class TestPracticeForm extends TestBase {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#uploadPicture").uploadFromClasspath("image.jpg");
-        $("#currentAddress").val("current address");
+        $("#currentAddress").val(currentAddress);
         $("#state").click();
-        $("#stateCity-wrapper").$(byText("Rajasthan")).click();
+        $("#stateCity-wrapper").$(byText(state)).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(byText("Jaipur")).click();
+        $("#stateCity-wrapper").$(byText(city)).click();
 
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text("Zulu Zinho"));
-        $(".table-responsive").shouldHave(text("fdsf@yadn.xu"));
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
+        $(".table-responsive").shouldHave(text(userEmail));
         $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("8911241555"));
+        $(".table-responsive").shouldHave(text(userNumber));
         $(".table-responsive").shouldHave(text("18 May,1996"));
         $(".table-responsive").shouldHave(text("Commerce"));
         $(".table-responsive").shouldHave(text("Sports"));
         $(".table-responsive").shouldHave(text("Music"));
-        $(".table-responsive").shouldHave(text("current address"));
-        $(".table-responsive").shouldHave(text("Rajasthan"));
-        $(".table-responsive").shouldHave(text("Jaipur"));
+        $(".table-responsive").shouldHave(text(currentAddress));
+        $(".table-responsive").shouldHave(text(state));
+        $(".table-responsive").shouldHave(text(city));
     }
 
 
@@ -53,16 +54,16 @@ public class TestPracticeForm extends TestBase {
     @Test
     void PositiveOnlyRequiredFieldsTest() {
         open("/automation-practice-form");
-        $("#firstName").val("Zulu");
-        $("#lastName").val("Zinho");
+        $("#firstName").val(firstName);
+        $("#lastName").val(lastName);
         $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").val("8911241555");
+        $("#userNumber").val(userNumber);
 
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text("Zulu Zinho"));
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
         $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("8911241555"));
+        $(".table-responsive").shouldHave(text(userNumber));
     }
 
 
@@ -70,8 +71,8 @@ public class TestPracticeForm extends TestBase {
     @Test
     void NegativeOnlyNameFieldTest() {
         open("/automation-practice-form");
-        $("#firstName").val("Zulu");
-        $("#lastName").val("Zinho");
+        $("#firstName").val(firstName);
+        $("#lastName").val(lastName);
 
         $("#submit").click();
 
@@ -95,8 +96,8 @@ public class TestPracticeForm extends TestBase {
     @Test
     void NegativeOnlyUserNumberFieldTest() {
         open("/automation-practice-form");
-        $("#firstName").val("Zulu");
-        $("#lastName").val("Zinho");
+        $("#firstName").val(firstName);
+        $("#lastName").val(lastName);
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").val("gregeg3");
 
@@ -110,11 +111,11 @@ public class TestPracticeForm extends TestBase {
     @Test
     void successfulFillSimpleFormTest() {
         open("/text-box");
-        $("#userName").val("Alex White");
+        $("#userName").val(userName);
 
         $("#submit").click();
 
-        $("#output #name").shouldHave(text("Alex White"));
+        $("#output #name").shouldHave(text(userName));
     }
 
 
@@ -122,7 +123,7 @@ public class TestPracticeForm extends TestBase {
     @Test
     void negativeIncorrectEmailSimpleFormTest() {
         open("/text-box");
-        $("#userName").val("Alex White");
+        $("#userName").val(userName);
         $("#userEmail").val("dfg242");
 
         $("#submit").click();
