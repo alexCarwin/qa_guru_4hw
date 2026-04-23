@@ -19,7 +19,6 @@ public class TestData {
     public static String yearOfBirth = "1996";
     public static String subjectsInput = "Commerce";
     public static String hobbySports = "Sports";
-    public static String hobbyMusic = "Music";
     public static String imageName = "image.jpg";
 
     public static String incorrectUserEmail = "dfg3243";

@@ -10,15 +10,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SimpleFormPage {
 
-
-    //Elements
-
     private SelenideElement userNameInput =  $("#userName");
     private SelenideElement submitButton = $("#submit");
     private SelenideElement userEmailInput = $("#userEmail");
     private SelenideElement outputResult = $("#output");
-
-
 
     public SimpleFormPage openPage(String url){
         open(url);
@@ -49,5 +44,4 @@ public class SimpleFormPage {
         outputResult.$(byId(key)).shouldNotHave(visible);
         return this;
     }
-
 }
