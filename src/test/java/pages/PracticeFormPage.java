@@ -2,15 +2,15 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.TableResultsComponent;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class PracticeFormPage {
     CalendarComponent calendar = new CalendarComponent();
+    TableResultsComponent tableResults = new TableResultsComponent();
 
     private SelenideElement userFirstNameInput = $("#firstName");
     private SelenideElement userLastNameInput = $("#lastName");
@@ -26,7 +26,6 @@ public class PracticeFormPage {
     private SelenideElement stateCityContainer = $("#stateCity-wrapper");
     private SelenideElement stateSelector = $("#state");
     private SelenideElement citySelector = $("#city");
-    private SelenideElement tableResults = $(".table-responsive");
 
     public PracticeFormPage openPage(String value) {
         open(value);
@@ -107,13 +106,13 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage checkField(String value) {
-        tableResults.shouldHave(text(value));
+    public PracticeFormPage checkField(String label, String value) {
+        tableResults.checkField(label, value);
         return this;
     }
 
     public PracticeFormPage checkFieldNotVisible() {
-        tableResults.shouldNotHave(visible);
+        tableResults.checkFieldNotVisible();
         return this;
     }
 }

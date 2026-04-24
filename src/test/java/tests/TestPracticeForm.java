@@ -26,20 +26,16 @@ public class TestPracticeForm extends TestBase {
                 .typeAddress(currentAddress)
                 .setStateAndCity(state, city)
                 .submitForm()
-                .checkField(userEmail)
-                .checkField(firstName)
-                .checkField(lastName)
-                .checkField(userEmail)
-                .checkField(gender)
-                .checkField(userNumber)
-                .checkField(dayOfBirth)
-                .checkField(monthOfBirth)
-                .checkField(yearOfBirth)
-                .checkField(subjectsInput)
-                .checkField(hobbySports)
-                .checkField(currentAddress)
-                .checkField(state)
-                .checkField(city);
+                .checkField(studentNameLabel, firstName + " " + lastName)
+                .checkField(studentEmailLabel,userEmail)
+                .checkField(genderLabel,gender)
+                .checkField(mobileLabel,userNumber)
+                .checkField(dateOfBirthLabel, dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
+                .checkField(subjectsLabel,subjectsInput)
+                .checkField(hobbiesLabel,hobbySports)
+                .checkField(pictureLabel,imageName)
+                .checkField(addressLabel,currentAddress)
+                .checkField(stateAndCityLabel, state + " " + city);
     }
 
     //Позитивный сценарий 2
@@ -53,26 +49,9 @@ public class TestPracticeForm extends TestBase {
                 .setGender(gender)
                 .typeUserNumber(userNumber)
                 .submitForm()
-                .checkField(firstName)
-                .checkField(lastName)
-                .checkField(gender)
-                .checkField(userNumber);
-    }
-
-    @Test
-    void PositiveOnlyRequiredFieldsTest_chaining() {
-        practiceFormPage
-                .openPage(practiceFormUrl)
-                .typeFirstUserName(firstName)
-                .typeLastUserName(lastName)
-                .typeUserEmail(userEmail)
-                .setGender(gender)
-                .typeUserNumber(userNumber)
-                .submitForm()
-                .checkField(firstName)
-                .checkField(lastName)
-                .checkField(gender)
-                .checkField(userNumber);
+                .checkField(studentNameLabel, firstName + " " + lastName)
+                .checkField(genderLabel,gender)
+                .checkField(mobileLabel,userNumber);
     }
 
     //Негативный сценарий: вводим только имя и фамилию

@@ -1,7 +1,6 @@
 package pages.components;
 
 import static com.codeborne.selenide.Selenide.$;
-import static tests.testdata.TestData.*;
 
 public class CalendarComponent {
 
