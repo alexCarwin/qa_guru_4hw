@@ -21,7 +21,7 @@ public class TestPracticeForm extends TestBase {
                 .typeUserNumber(userNumber)
                 .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
                 .setSubject(subjectsInput)
-                .typeHobby(hobbySports)
+                .typeHobby(hobby)
                 .uploadPicture(imageName)
                 .typeAddress(currentAddress)
                 .setStateAndCity(state, city)
@@ -32,7 +32,7 @@ public class TestPracticeForm extends TestBase {
                 .checkField("Mobile",userNumber)
                 .checkField("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkField("Subjects",subjectsInput)
-                .checkField("Hobbies",hobbySports)
+                .checkField("Hobbies", hobby)
                 .checkField("Picture",imageName)
                 .checkField("Address",currentAddress)
                 .checkField("State and City", state + " " + city);
