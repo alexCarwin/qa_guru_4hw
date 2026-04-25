@@ -12,20 +12,20 @@ public class PracticeFormPage {
     CalendarComponent calendar = new CalendarComponent();
     TableResultsComponent tableResults = new TableResultsComponent();
 
-    private SelenideElement userFirstNameInput = $("#firstName");
-    private SelenideElement userLastNameInput = $("#lastName");
-    private SelenideElement userEmailInput = $("#userEmail");
-    private SelenideElement userNumberInput = $("#userNumber");
-    private SelenideElement submitButton = $("#submit");
-    private SelenideElement genterWrapperInput = $("#genterWrapper");
-    private SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
-    private SelenideElement subjectsInput = $("#subjectsInput");
-    private SelenideElement hobbyInput = $("#hobbiesWrapper");
-    private SelenideElement uploadPicture = $("#uploadPicture");
-    private SelenideElement addressInput = $("#currentAddress");
-    private SelenideElement stateCityContainer = $("#stateCity-wrapper");
-    private SelenideElement stateSelector = $("#state");
-    private SelenideElement citySelector = $("#city");
+    private final SelenideElement userFirstNameInput = $("#firstName");
+    private final SelenideElement userLastNameInput = $("#lastName");
+    private final SelenideElement userEmailInput = $("#userEmail");
+    private final SelenideElement userNumberInput = $("#userNumber");
+    private final SelenideElement submitButton = $("#submit");
+    private final SelenideElement genterWrapperInput = $("#genterWrapper");
+    private final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
+    private final SelenideElement subjectsInput = $("#subjectsInput");
+    private final SelenideElement hobbyInput = $("#hobbiesWrapper");
+    private final SelenideElement uploadPicture = $("#uploadPicture");
+    private final SelenideElement addressInput = $("#currentAddress");
+    private final SelenideElement stateCityContainer = $("#stateCity-wrapper");
+    private final SelenideElement stateSelector = $("#state");
+    private final SelenideElement citySelector = $("#city");
 
     public PracticeFormPage openPage(String value) {
         open(value);

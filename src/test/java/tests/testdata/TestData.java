@@ -26,16 +26,4 @@ public class TestData {
     public static String state = "Rajasthan";
     public static String city = "Jaipur";
 
-    // Test Practice Form Labels
-    public static String studentNameLabel = "Student Name";
-    public static String studentEmailLabel = "Student Email";
-    public static String genderLabel = "Gender";
-    public static String mobileLabel = "Mobile";
-    public static String dateOfBirthLabel = "Date of Birth";
-    public static String subjectsLabel = "Subjects";
-    public static String hobbiesLabel = "Hobbies";
-    public static String pictureLabel = "Picture";
-    public static String addressLabel = "Address";
-    public static String stateAndCityLabel = "State and City";
-
 }

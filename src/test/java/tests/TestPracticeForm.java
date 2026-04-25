@@ -26,16 +26,16 @@ public class TestPracticeForm extends TestBase {
                 .typeAddress(currentAddress)
                 .setStateAndCity(state, city)
                 .submitForm()
-                .checkField(studentNameLabel, firstName + " " + lastName)
-                .checkField(studentEmailLabel,userEmail)
-                .checkField(genderLabel,gender)
-                .checkField(mobileLabel,userNumber)
-                .checkField(dateOfBirthLabel, dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
-                .checkField(subjectsLabel,subjectsInput)
-                .checkField(hobbiesLabel,hobbySports)
-                .checkField(pictureLabel,imageName)
-                .checkField(addressLabel,currentAddress)
-                .checkField(stateAndCityLabel, state + " " + city);
+                .checkField("Student Name", firstName + " " + lastName)
+                .checkField("Student Email",userEmail)
+                .checkField("Gender",gender)
+                .checkField("Mobile",userNumber)
+                .checkField("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
+                .checkField("Subjects",subjectsInput)
+                .checkField("Hobbies",hobbySports)
+                .checkField("Picture",imageName)
+                .checkField("Address",currentAddress)
+                .checkField("State and City", state + " " + city);
     }
 
     //Позитивный сценарий 2
@@ -49,9 +49,9 @@ public class TestPracticeForm extends TestBase {
                 .setGender(gender)
                 .typeUserNumber(userNumber)
                 .submitForm()
-                .checkField(studentNameLabel, firstName + " " + lastName)
-                .checkField(genderLabel,gender)
-                .checkField(mobileLabel,userNumber);
+                .checkField("Student Name", firstName + " " + lastName)
+                .checkField("Gender",gender)
+                .checkField("Mobile",userNumber);
     }
 
     //Негативный сценарий: вводим только имя и фамилию

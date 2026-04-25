@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SimpleFormPage {
 
-    private SelenideElement userNameInput =  $("#userName");
-    private SelenideElement submitButton = $("#submit");
-    private SelenideElement userEmailInput = $("#userEmail");
-    private SelenideElement outputResult = $("#output");
+    private final SelenideElement userNameInput =  $("#userName");
+    private final SelenideElement submitButton = $("#submit");
+    private final SelenideElement userEmailInput = $("#userEmail");
+    private final SelenideElement outputResult = $("#output");
 
     public SimpleFormPage openPage(String url){
         open(url);
