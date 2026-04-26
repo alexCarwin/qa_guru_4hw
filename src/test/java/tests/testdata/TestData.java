@@ -3,7 +3,7 @@ package tests.testdata;
 import com.github.javafaker.Faker;
 
 public class TestData {
-    static Faker faker = new Faker();
+    Faker faker = new Faker();
 
     public static String simpleFormUrl = "/text-box";
     public static String practiceFormUrl = "/automation-practice-form";
