@@ -15,11 +15,11 @@ public class TestSimpleForm extends TestBase {
     void successfulFillSimpleFormTest() {
         simpleFormPage
                 .openPage(simpleFormUrl)
-                .typeUserName(userName)
-                .typeEmail(userEmail)
+                .typeUserName(testData.userName)
+                .typeEmail(testData.userEmail)
                 .submitForm()
-                .checkFieldPositive("name", userName)
-                .checkFieldPositive("email", userEmail);
+                .checkFieldPositive("name", testData.userName)
+                .checkFieldPositive("email", testData.userEmail);
     }
 
     //Негативный сценарий на простую форму с некорректным имейлом
@@ -27,8 +27,8 @@ public class TestSimpleForm extends TestBase {
     void negativeIncorrectEmailSimpleFormTest() {
         simpleFormPage
                 .openPage(simpleFormUrl)
-                .typeUserName(userName)
-                .typeEmail(incorrectUserEmail)
+                .typeUserName(testData.userName)
+                .typeEmail(testData.incorrectUserEmail)
                 .submitForm()
                 .checkFieldNotVisible("email");
     }
